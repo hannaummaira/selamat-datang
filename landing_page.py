@@ -1,7 +1,7 @@
 import streamlit as st
 
 def show_landing_page():
-    st.title("SISTEM BERKAT USAHA PASTI BERJAYA")
+    st.title("SISTEM BERKAT USAHA PASTI BERJAYA,layout="centered")
     st.write("Selamat datang ke sistem kami.")
     st.write("Tekan butang di bawah untuk masuk.")
 
