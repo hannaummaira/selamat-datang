@@ -32,7 +32,7 @@ def show_landing_page():
 
     # Butang Masuk - kekal kat tengah guna col2
     col1, col2, col3 = st.columns([1, 1, 1])
-    with col1, col2, col3:
+    with col1:
         if st.button("Masuk", use_container_width=True):
             st.session_state.masuk = True
             st.rerun()
