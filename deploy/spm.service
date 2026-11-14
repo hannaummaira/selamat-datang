@@ -1,0 +1,16 @@
+[Unit]
+Description=SPM Selangor 2026 (Streamlit)
+After=network.target
+
+[Service]
+User=spm
+WorkingDirectory=/opt/spm
+EnvironmentFile=/etc/spm.env
+ExecStart=/opt/spm/venv/bin/streamlit run app.py --server.port 8501 --server.address 127.0.0.1 --server.headless true --server.maxUploadSize 20 --browser.gatherUsageStats false
+Restart=always
+RestartSec=5
+# had memori (laraskan ikut VPS): proses dimatikan & dimulakan semula jika melebihi
+MemoryMax=3G
+
+[Install]
+WantedBy=multi-user.target

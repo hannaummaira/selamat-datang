@@ -1,0 +1,16 @@
+# Satu servis bagi setiap program: spm@SPM, spm@UBBM, spm@UBBI. Tetapan di /etc/spm-<PROGRAM>.env (mesti ada PROGRAM dan PORT).
+[Unit]
+Description=Sistem Pelantikan Petugas Selangor (%i)
+After=network.target
+
+[Service]
+User=spm
+WorkingDirectory=/opt/spm
+EnvironmentFile=/etc/spm-%i.env
+ExecStart=/opt/spm/venv/bin/streamlit run app.py --server.port ${PORT} --server.address 127.0.0.1 --server.headless true --server.maxUploadSize 20 --browser.gatherUsageStats false
+Restart=always
+RestartSec=5
+MemoryMax=2G
+
+[Install]
+WantedBy=multi-user.target
